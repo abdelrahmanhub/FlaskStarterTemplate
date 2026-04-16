@@ -1,0 +1,248 @@
+/* Main stylesheet for layout, components, and notification styling. */
+:root {
+    --brand-primary: #0000ff;
+    --brand-primary-dark: #0000cc;
+    --state-danger: #d42f2f;
+
+    --bg-page: #f2f4f7;
+    --bg-surface: #ffffff;
+    --text-main: #1f2933;
+
+    --border-soft: #d9dee5;
+    --border-softer: #e7ebf0;
+    --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+    --radius-lg: 20px;
+    --radius-md: 10px;
+}
+
+body {
+    background-color: var(--bg-page);
+    font-family: "Cairo", Arial, sans-serif;
+    min-height: 100vh;
+    color: var(--text-main);
+}
+
+/* Navigation */
+.app-navbar {
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border-soft);
+    padding: 10px 20px;
+}
+
+.app-brand {
+    color: var(--brand-primary) !important;
+    font-weight: 700;
+    font-size: 26px;
+}
+
+.app-link {
+    color: var(--text-main) !important;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 8px 14px !important;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    margin: 0 4px;
+}
+
+.app-link:hover {
+    background-color: #f0f2f5;
+}
+
+.app-link.fw-semibold {
+    background-color: #e4e6eb;
+}
+
+.app-link-btn {
+    border: 0;
+    background: transparent;
+}
+
+.global-search {
+    margin: 0 20px;
+}
+
+.global-search form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.global-search input {
+    height: 38px;
+    padding: 0 12px;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    min-width: 220px;
+}
+
+.global-search input:focus {
+    outline: none;
+    border-color: var(--brand-primary);
+}
+
+/* Generic UI */
+.ui-btn {
+    display: inline-block;
+    background-color: var(--brand-primary);
+    color: #ffffff;
+    font-size: 14px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.ui-btn:hover {
+    background-color: var(--brand-primary-dark);
+}
+
+.ui-btn-danger {
+    background-color: var(--state-danger);
+}
+
+.ui-btn-danger:hover {
+    background-color: #b62020;
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--brand-primary);
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.empty-state {
+    margin: 0;
+    padding: 16px;
+}
+
+.avatar-sm {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.avatar-md {
+    width: 68px;
+    height: 68px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.avatar-lg {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Toast notifications */
+.notice-stack {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: min(92vw, 360px);
+}
+
+.notice-toast {
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: var(--shadow-soft);
+    animation: toast-enter 0.25s ease forwards;
+}
+
+.notice-success {
+    background: linear-gradient(135deg, #209947, #157133);
+}
+
+.notice-error,
+.notice-danger {
+    background: linear-gradient(135deg, #db3a3a, #af2626);
+}
+
+.notice-warning {
+    background: linear-gradient(135deg, #f2bd26, #d99a00);
+    color: #1c1c1c;
+}
+
+.notice-info {
+    background: linear-gradient(135deg, #2582b8, #1e6690);
+}
+
+.notice-toast.is-hiding {
+    animation: toast-exit 0.25s ease forwards;
+}
+
+/* Cards/forms */
+.auth-card {
+    background-color: var(--bg-surface);
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    width: min(92%, 460px);
+    margin: 24px auto;
+    text-align: center;
+}
+
+.auth-card input {
+    width: 100%;
+    height: 44px;
+    font-size: 15px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+}
+
+.auth-card input:focus {
+    border-color: var(--brand-primary);
+    outline: none;
+}
+
+.auth-card button {
+    width: 100%;
+    margin-top: 6px;
+}
+
+.profile-card {
+    text-align: center;
+}
+
+/* Tables */
+.app-list-card {
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+}
+
+.app-list-card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.app-list-card td {
+    padding: 12px 15px;
+    text-align: right;
+    border-bottom: 1px solid var(--border-softer);
+}
+
+.app-list-card tbody tr:hover {
+    background-color: #f6f8fa;
+}

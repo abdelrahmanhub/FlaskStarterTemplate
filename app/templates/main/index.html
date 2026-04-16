@@ -1,0 +1,8 @@
+{# Home page template shown to authenticated users after login. #}
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block page_title %}Home{% endblock %}
+
+{% block body %}
+<h2>Welcome {{ user.name.split()[0] }}! this is the home page.</h2>
+{% endblock %}

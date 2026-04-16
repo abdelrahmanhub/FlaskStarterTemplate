@@ -1,0 +1,18 @@
+{# Registration page template for creating a new user account. #}
+{% extends "layout.html" %}
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<div class="auth-card">
+    <h2>Register</h2>
+    <form action="/register" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="text" name="name" placeholder="Name" maxlength="80" required>
+        <input type="text" name="username" placeholder="Username" minlength="3" maxlength="30" pattern="[A-Za-z0-9_.-]{3,30}" required>
+        <input type="password" name="password" placeholder="Password" minlength="8" required>
+        <input type="password" name="confirmation" placeholder="Confirm Password" minlength="8" required>
+        <button class="ui-btn" type="submit">Register</button>
+    </form>
+    <p>Have an account? <a href="/login">log in</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{# Profile page template displaying current authenticated user details. #}
+{% extends "layout.html" %}
+{% block title %}Profile{% endblock %}
+{% block page_title %}Profile{% endblock %}
+
+{% block body %}
+<h2>Profile for {{ user.name }}</h2>
+<p>Username: {{ user.username }}</p>
+{% endblock %}
